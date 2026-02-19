@@ -20,12 +20,14 @@ X = scaler.fit_transform(X)
 # Split dataset
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-# Train Linear Regression model
-model = LinearRegression()
+from sklearn.tree import DecisionTreeRegressor
+
+# Train model
+model = DecisionTreeRegressor()
 model.fit(X_train, y_train)
 
-# Predictions
+# Predict
 predictions = model.predict(X_test)
 
 # Accuracy
-print("Linear Regression Accuracy:", r2_score(y_test, predictions))
+print("Decision Tree Accuracy:", r2_score(y_test, predictions))
