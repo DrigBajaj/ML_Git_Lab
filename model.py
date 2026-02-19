@@ -12,6 +12,10 @@ y = df["SalePrice"]
 
 # Convert categorical columns to numeric
 X = pd.get_dummies(X)
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X = scaler.fit_transform(X)
+
 
 # Split dataset
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
